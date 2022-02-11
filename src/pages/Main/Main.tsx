@@ -8,11 +8,11 @@ import { useState } from 'react';
 const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
-  const userState = useSelector((state)=> state.auth);
+  const userState = useSelector((state:StoreState)=> state.auth);
   if (LoginModal) {
     document.body.style.overflow = "hidden";
   }
-  
+
   return (
     <>
     {LoginModal && !userState.userName && <Login setLoginModal={setLoginModal} />}
