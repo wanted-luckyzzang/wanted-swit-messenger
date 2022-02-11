@@ -18,10 +18,9 @@ const Main = () => {
   }
 
   const logoutHandler = () => {
-    const userName = userState.userName;
-    dispatch(logout({ userName }));
-    alert('로그아웃 되었습니다.');
-  };
+    dispatch(logout());
+    alert("로그아웃 되었습니다.")
+  }
 
   return (
     <>
@@ -40,15 +39,19 @@ const Main = () => {
             <div className="move-to-chat"></div>
           </div>
           <div className="section">
-            <div className="section-navBox">
-              <span className="nav">💛General</span>
-              {userState.userName ? (
-                <span className="section-login" onClick={logoutHandler}>
-                  로그아웃
-                </span>
-              ) : (
-                <span className="section-login">로그인</span>
-              )}
+          <div className='section-navBox'>
+          <span className="nav">💛General</span>
+          {userState.userName ? (
+            <span className="section-login" onClick={logoutHandler}>로그아웃</span>
+          ) : (
+            <span className="section-login" onClick={()=> {setLoginModal(true)}}>로그인</span>
+          )}
+          </div>
+          <div className="chat-background">
+            <div className="date-line">
+              <div className="line"></div>
+              <span className="date">Thursday, August 22, 2019</span>
+              <div className="line"></div>
             </div>
             <div className="chat-background">
               <div className="date-line">
