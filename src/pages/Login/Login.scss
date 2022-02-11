@@ -1,90 +1,99 @@
-.signup-container {
-  height: 500px;
-  width: 500px;
-  padding: 20px;
-  background-color: #F8F8F8;
-  display: flex;
-  flex-direction: column;
+.login-layout {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0.3;
 }
 
-.signup-Header {
+.login-container {
+  height: 480px;
+  width: 350px;
+  padding: 25px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-}
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  z-index: 10;
 
-.signup-Section {
-  display: flex;
-  margin-top: 20px;
-}
+  .login-Header {
+    display: flex;
+    text-align: center;
+    position: relative;
+    font-size: 26px;
 
-.signtup-profileEdit {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-
-  .signtup-profileEdit-imgBox {
-    margin: auto;
-    width: 150px;
-    height: 150px;
-    border: 3px black solid;
-    border-radius: 5px;
-    margin-top: 1rem;
-
-    & > img {
-      width: 150px;
-    height: 150px;
-    object-fit: cover;
+    & > span {
+      font-weight: bold;
+      margin: auto;
     }
   }
- 
-  & > h1 {
-    text-align: center;
+
+  .login-nav {
+    margin-top: 18px;
   }
 
-  & > div {
-    margin: 15px 0;
-  }
-  & > input {
-    display: none;
-  }
-  & > div > label {
-    cursor: pointer;
-  }
-}
-// 로그인, 회원가입 입력란
+  .login-profileEdit {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 
-  .signup-info {
-    margin: 30px 0;
-  
-    & > h4 {
-      margin: 10px 0;
+    & > div:first-child {
+      margin: auto;
+      width: 100px;
+      height: 100px;
+      border: 2px black solid;
+      border-radius: 5px;
+      margin-top: 1rem;
+
+      & > img {
+        width: 100px;
+      height: 100px;
+      object-fit: cover;
+      }
     }
     & > input {
-      width: 200px;
-      height: 40px;
-      border-radius: 5px;
-      border: 1px solid #DBDBDB;
-      text-indent: 10px;
+      display: none;
+    }
+    & > div:last-child {
+      margin-top: 10px;
+      & > label {
+        cursor: pointer;
+        font-size: 14px;
+      }
     }
   }
 
+  .login-info {
+    margin-top: 30px;
 
+    & > input {
+      width: 200px;
+      height: 30px;
+      border-radius: 5px;
+      border: 1px solid #DBDBDB;
+      text-indent: 65px;
+    }
+  }
 
-
-// 로그인, 회원가입 버튼
-
-.signup-buttonBox {
-  text-align: right;
-  margin-top: 15px;
-
-  .signup-button {
+  .login-button {
     height: 40px;
-    width: 80px;
+    width: 100px;
     margin: auto 0;
     border: 1px solid #DBDBDB;
     background-color: transparent;
     border-radius: 5px;
-    font-weight: lighter;
+    font-weight: bold;
     font-size: 14px;
+    margin-top: 30px;
     cursor: pointer;
   
     &:hover {
@@ -94,14 +103,3 @@
     }
   }
 }
-
-// 로그인 페이지
-  .login-section {
-    margin: 0 auto;
-    & > div {
-      margin: 40px 0;
-    }
-    & > div:last-child {
-      margin: -10px 0;
-    }
-  }
