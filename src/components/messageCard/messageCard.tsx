@@ -1,28 +1,22 @@
-import MessageModal from "components/messageModal/messageModal";
-import { useSelector } from "react-redux";
-import { StoreState } from "types/store/stateType";
-import "./messageCard.scss";
+import MessageModal from 'components/messageModal/messageModal';
+import { MessageData } from 'types/store';
+import './messageCard.scss';
+import ProfilePhoto from './profilePhoto';
 
-const MessageCard = () => {
-  const messageState = useSelector((state: StoreState) => state.message)[1];
-  console.log(messageState);
+const MessageCard = (props: { msg: MessageData }): JSX.Element => {
   return (
     <div className="message-card-container">
       <MessageModal />
       <div className="message-card">
         <div className="user-profile">
-          <img
-            className="image"
-            src={messageState?.profileImage}
-            alt="profileImage"
-          />
+          <ProfilePhoto image={props.msg.profileImage} />
         </div>
         <div className="content">
           <span className="name-date">
-            <span className="name">{messageState.userName}</span>
-            <span className="date">{messageState.date}</span>
+            <span className="name">{props.msg.userName}</span>
+            <span className="date">{props.msg.date}</span>
           </span>
-          <div className="message">{messageState.content}</div>
+          <div className="message">{props.msg.content}</div>
         </div>
       </div>
     </div>

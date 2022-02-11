@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
@@ -10,12 +9,11 @@ const { store, persistor } = configureStore();
 
 ReactDOM.render(
   <BrowserRouter>
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <App />
-    </PersistGate>
-  </Provider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   </BrowserRouter>,
-
   document.getElementById('root')
 );
