@@ -5,51 +5,31 @@
 - 기간 : 22.02.10 ~ 22.02.12
 
 
+
 ## 2. 배포 링크
+
+
 
 
 ## 3. 팀원 소개
 
 <table>
-  <tr>
-        </td>
-      <td align="center">
-      <a href="https://github.com/Jiyong95"
-        ><img
-          src="https://avatars.githubusercontent.com/u/49055628?v=4"
-          width="100px;"
-          alt=""
-        /><br /><sub><b>이지용</b></sub></a>
-    <br />
-    </td>
-    <td align="center">
-      <a href="https://github.com/BByungs"
-        ><img
-          src="https://avatars.githubusercontent.com/u/81910935?v=4"
-          width="100px;"
-          alt=""
-        /><br /><sub><b>안병진</b></sub></a
-      ><br />
-    </td>
-    <td align="center">
-      <a href="https://github.com/Yena-Yun"
-        ><img
-          src="https://avatars.githubusercontent.com/u/68722179?v=4"
-          width="100px;"
-          alt=""
-        /><br /><sub><b>윤예나</b></sub></a
-      ><br />
-    </td>
-    <td align="center">
-      <a href="https://github.com/minjuice1"
-        ><img
-          src="https://avatars.githubusercontent.com/u/82799961?v=4"
-          width="100px;"
-          alt=""
-        /><br /><sub><b>박민주</b></sub></a
-      ><br />
+
+  <tr align="center">
+    <td><a href='https://github.com/Jiyong95'>이지용</a></td>
+    <td><a href="https://github.com/BByungs">안병진</a></td>
+    <td><a href="https://github.com/Yena-Yun">윤예나</a></td>
+    <td><a href="https://github.com/minjuice1">박민주</a></td>
+  </tr>
+
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/49055628?v=4" width="150px"/></td>
+    <td><img src="https://avatars.githubusercontent.com/u/81910935?v=4"  width="150px"/></td>
+    <td><img src="https://avatars.githubusercontent.com/u/68722179?v=4" width="150px"/></td>
+    <td><img src="https://avatars.githubusercontent.com/u/82799961?v=4" width="150px"/></td>
   </tr>
 </table>
+
 
 
 ## 4. 구현 기능
@@ -61,6 +41,7 @@
 ⚜ 박민주
   
 ⚜ 윤예나
+
 
 
 ## 5. 기술 스택
