@@ -1,4 +1,4 @@
-import { MeData, MessageData } from 'types/store/dataTypes';
+import { MeData, MessageData } from 'types/store';
 
 export const ME: MeData = {
   userId: 1,
