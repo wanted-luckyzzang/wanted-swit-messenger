@@ -7,7 +7,10 @@ type AuthActionTypes = LoginAction | LogoutAction;
 export default function auth(state = ME, action: AuthActionTypes) {
   switch (action.type) {
     case AUTH_USER:
-      return state;
+      return {
+        ...state,
+        userName: action.payload.userName
+      };
     case UNAUTH_USER:
       return state;
     default:
