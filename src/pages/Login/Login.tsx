@@ -1,6 +1,6 @@
 import { useRef, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { login } from 'store/actions';
 import { StoreState } from 'types/store';
 import "../Login/Login.scss";
@@ -8,7 +8,7 @@ import "../Login/Login.scss";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userState = useSelector((state:StoreState)=>state.auth);
+  const userState = useSelector((state: StoreState) => state.auth);
   const inputEl = useRef<HTMLInputElement | null>(null);
   const [profileImage, setProfileImg] = useState<string>();
 
@@ -25,14 +25,14 @@ const Login = () => {
   };
 
   const submitHandler = () => {
-    const {current} = inputEl;
+    const { current } = inputEl;
     const userName = current?.value;
     if(profileImage)
       dispatch(login({userName, profileImage}))
     navigate("/main")
   }
 
-  return(
+  return (
     <>
       <div className='signup-container'>
         <header className='signup-Header'>
@@ -61,7 +61,7 @@ const Login = () => {
         </section>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Login;
