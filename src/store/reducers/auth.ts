@@ -9,7 +9,7 @@ export default function auth(state = ME, action: AuthActionTypes) {
     case AUTH_USER:
       return state;
     case UNAUTH_USER:
-      return { ...state, userName: null, profileImage: null };
+      return state;
     default:
       return state;
   }
