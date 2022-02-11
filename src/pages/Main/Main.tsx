@@ -4,6 +4,7 @@ import { StoreState } from "types/store";
 import MessageCard from "components/messageCard/messageCard";
 import Login from 'components/Login/Login';
 import { useState } from 'react';
+import { logout } from 'store/actions';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ const Main = () => {
   }
 
   const logoutHandler = () => {
-    dispatch(userState.userName);
+    const userName = userState.userName;
+    dispatch(logout({userName}));
+    alert("로그아웃 되었습니다.")
   }
 
   return (
@@ -37,9 +40,9 @@ const Main = () => {
           <div className='section-navBox'>
           <span className="nav">💛General</span>
           {userState.userName ? (
-            <span className="section-login">로그인</span>
-          ) : (
             <span className="section-login" onClick={logoutHandler}>로그아웃</span>
+          ) : (
+            <span className="section-login">로그인</span>
           )}
           </div>
           <div className="chat-background">
