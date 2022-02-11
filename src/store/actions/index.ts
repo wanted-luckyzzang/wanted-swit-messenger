@@ -1,4 +1,4 @@
-import { login, logout, signup } from './auth';
+import { login, logout } from './auth';
 import { sendMessage, deleteMessage } from './message';
 
-export { login, logout, signup, sendMessage, deleteMessage };
+export { login, logout, sendMessage, deleteMessage };

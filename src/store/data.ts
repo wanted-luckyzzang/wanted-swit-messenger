@@ -3,7 +3,7 @@ import { MeData, MessageData } from 'types/store';
 export const ME: MeData = {
   userId: 1,
   userName: undefined,
-  profileImage: undefined,
+  profileImage: "Ddd",
 };
 
 export const MESSAGE_DATA: MessageData[] = [
