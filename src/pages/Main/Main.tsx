@@ -2,10 +2,20 @@ import "./Main.scss";
 import { useSelector } from "react-redux";
 import { StoreState } from "types/store";
 import MessageCard from "components/messageCard/messageCard";
+import Login from 'components/Login/Login';
+import { useState } from 'react';
 
 const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
+  const [LoginModal, setLoginModal] = useState<boolean>(true);
+  const userState = useSelector((state:StoreState)=> state.auth);
+  if (LoginModal) {
+    document.body.style.overflow = "hidden";
+  }
+
   return (
+    <>
+    {LoginModal && !userState.userName && <Login setLoginModal={setLoginModal} />}
     <div className="main-container">
       <div className="header">
         <div className="home-wrap">
@@ -34,6 +44,7 @@ const Main = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
