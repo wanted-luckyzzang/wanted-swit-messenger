@@ -11,9 +11,9 @@ const Main = () => {
 
   const messageState = useSelector((state: StoreState) => state.message);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
-  const userState = useSelector((state:StoreState)=> state.auth);
+  const userState = useSelector((state: StoreState) => state.auth);
   if (LoginModal) {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   }
 
   const logoutHandler = () => {
@@ -24,17 +24,15 @@ const Main = () => {
 
   return (
     <>
-    {LoginModal && !userState.userName && <Login setLoginModal={setLoginModal} />}
-    <div className="main-container">
-      <div className="header">
-        <div className="home-wrap">
-          <div className="home-icon"></div>
-        </div>
-        <div className="header-title">Swit</div>
-      </div>
-      <div className="main">
-        <div className="sidebar">
-          <div className="move-to-chat"></div>
+      {LoginModal && !userState.userName && (
+        <Login setLoginModal={setLoginModal} />
+      )}
+      <div className="main-container">
+        <div className="header">
+          <div className="home-wrap">
+            <div className="home-icon"></div>
+          </div>
+          <div className="header-title">Swit</div>
         </div>
         <div className="section">
           <div className='section-navBox'>
@@ -59,7 +57,6 @@ const Main = () => {
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
