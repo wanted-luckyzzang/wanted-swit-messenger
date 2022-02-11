@@ -7,16 +7,16 @@ const Login = () => {
         <header className='SignUpHeader'>
           <h1>로그인</h1>
         </header>
-        <section className='SignUpSection'>
+        <section className='LoginSection'>
           <div className='SignUpInfo'>
             <h4>아이디</h4>
             <input type="text" placeholder='아이디를 입력하세요'/>
           </div>
           <div className='SignUpInfo'>
             <h4>비밀번호</h4>
-            <input type="password" placeholder='비밀번호를 입력하세요'/>
+            <input type="password" placeholder='비밀번호를 입력하세요' autoComplete="on"/>
           </div>
-          <div>
+          <div className='SignUpButtonBox'>
             <button className='SignUpButton' type='submit'>로그인</button>
           </div>
         </section>
