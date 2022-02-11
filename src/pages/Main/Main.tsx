@@ -1,8 +1,8 @@
-import './Main.scss';
 import { useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
 import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
+import './Main.scss';
 
 const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
