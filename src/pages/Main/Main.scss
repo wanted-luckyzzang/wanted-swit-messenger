@@ -68,21 +68,36 @@
       padding-left: 62px;
       background: #f8f8f8;
 
-      .nav {
+      .section-navBox {
         display: flex;
-        align-items: center;
+        justify-content: space-around;
         height: 100px;
+        width: 96%;
         z-index: 5;
         background: #fff;
-        padding: 0 20px;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        color: #343434;
-        font-size: 20px;
-        font-weight: 700;
+        padding: 0 20px;
         position: fixed;
         top: 74px;
         left: 63px;
-        width: 100vw;
+
+        .nav {
+          display: flex;
+          align-items: center;
+          color: #343434;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        .section-login {
+          display: flex;
+          align-items: center;
+          color: #343434;
+          font-size: 20px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
       }
 
       .chat-background {

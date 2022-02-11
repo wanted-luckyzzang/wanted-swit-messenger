@@ -1,16 +1,22 @@
 import "./Main.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { StoreState } from "types/store";
 import MessageCard from "components/messageCard/messageCard";
 import Login from 'components/Login/Login';
 import { useState } from 'react';
 
 const Main = () => {
+  const dispatch = useDispatch();
+
   const messageState = useSelector((state: StoreState) => state.message);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
   const userState = useSelector((state:StoreState)=> state.auth);
   if (LoginModal) {
     document.body.style.overflow = "hidden";
+  }
+
+  const logoutHandler = () => {
+    dispatch(userState.userName);
   }
 
   return (
@@ -28,7 +34,14 @@ const Main = () => {
           <div className="move-to-chat"></div>
         </div>
         <div className="section">
-          <div className="nav">💛General</div>
+          <div className='section-navBox'>
+          <span className="nav">💛General</span>
+          {userState.userName ? (
+            <span className="section-login">로그인</span>
+          ) : (
+            <span className="section-login" onClick={logoutHandler}>로그아웃</span>
+          )}
+          </div>
           <div className="chat-background">
             <div className="date-line">
               <div className="line"></div>
