@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { login } from 'store/actions';
 import { StoreState } from 'types/store';
 import "../Login/Login.scss";
+import cancel from "../../assets/cancel.png"
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state: StoreState) => state.auth);
   const inputEl = useRef<HTMLInputElement | null>(null);
-  const [profileImage, setProfileImg] = useState<string>();
+  const [profileImage, setProfileImg] = useState<string>("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
 
   const imageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
@@ -34,32 +35,35 @@ const Login = () => {
 
   return (
     <>
-      <div className='signup-container'>
-        <header className='signup-Header'>
-          <h1>로그인</h1>
+      <div className='login-container'>
+        <header className='login-Header'>
+          <span>Swit</span>
         </header>
+        <nav className='login-nav'>
+          <h2>회원가입 없이</h2>
+          <h2>바로 대화에 참여해보세요!</h2>
+        </nav>
         <section className='login-section'>
-        <div className='signup-info'>
-          <h4>아이디</h4>
-          <input ref={inputEl} name="username" type="text" placeholder='아이디를 입력하세요' required/>
-        </div>
-        <div className="signtup-profileEdit">
-					  <h1>프로필 이미지</h1>
-            <div className="signtup-profileEdit-imgBox">
-              {profileImage && <img src={profileImage} alt="" id="img" className="img" />}
+          <div className="login-profileEdit">
+              <div>
+                {profileImage && <img src={profileImage} alt="" id="img" className="img" />}
+              </div>
+              <input type="file" accept="image/*" name="image-upload" id="input" onChange={imageHandler} />
+              <div className="label">
+                <label htmlFor="input">
+                  이미지 등록
+                </label>
+              </div>
             </div>
-            <input type="file" accept="image/*" name="image-upload" id="input" onChange={imageHandler} />
-            <div className="label">
-              <label htmlFor="input">
-                이미지를 등록해주세요.
-              </label>
+            <div className='login-info'>
+              <input ref={inputEl} name="username" type="text" placeholder='아이디 입력' required/>
             </div>
-				  </div>
-        <div className='signup-buttonBox'>
-          <button className='signup-button' onClick={submitHandler}>로그인</button>
-        </div>
+          <div className='login-buttonBox'>
+            <button className='login-button' onClick={submitHandler}>로그인</button>
+          </div>
         </section>
       </div>
+      <div className='login-layout'/>
     </>
   );
 };
