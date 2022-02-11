@@ -47,12 +47,6 @@ const Main = () => {
             <span className="section-login" onClick={()=> {setLoginModal(true)}}>로그인</span>
           )}
           </div>
-          <div className="chat-background">
-            <div className="date-line">
-              <div className="line"></div>
-              <span className="date">Thursday, August 22, 2019</span>
-              <div className="line"></div>
-            </div>
             <div className="chat-background">
               <div className="date-line">
                 <div className="line"></div>
@@ -67,7 +61,7 @@ const Main = () => {
               <MessageInput />
             </div>
           </div>
-        </div>
+          </div>
       </div>
     </>
   );
