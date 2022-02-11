@@ -1,10 +1,11 @@
-import "./Main.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { StoreState } from "types/store";
-import MessageCard from "components/messageCard/messageCard";
-import Login from 'components/Login/Login';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { StoreState } from 'types/store';
 import { logout } from 'store/actions';
+import MessageCard from 'components/messageCard/messageCard';
+import MessageInput from 'components/messageInput/messageInput';
+import './Main.scss';
+import Login from 'components/Login/Login';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -24,15 +25,13 @@ const Main = () => {
 
   return (
     <>
-      {LoginModal && !userState.userName && (
-        <Login setLoginModal={setLoginModal} />
-      )}
-      <div className="main-container">
-        <div className="header">
-          <div className="home-wrap">
-            <div className="home-icon"></div>
+      {LoginModal && !userState.userName && <Login setLoginModal={setLoginModal} />}
+      <div className='main-container'>
+        <div className='header'>
+          <div className='home-wrap'>
+            <div className='home-icon'></div>
           </div>
-          <div className="header-title">Swit</div>
+          <div className='header-title'>Swit</div>
         </div>
         <div className="section">
           <div className='section-navBox'>
@@ -54,6 +53,7 @@ const Main = () => {
                 <MessageCard key={data.userId} msg={data} />
               ))}
             </div>
+            <MessageInput />
           </div>
         </div>
       </div>

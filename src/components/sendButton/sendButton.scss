@@ -1,0 +1,15 @@
+.send-btn {
+  width: 80px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &.nonactive {
+    background: #e4e4e9;
+  }
+
+  &.active {
+    color: #fff;
+    background: #a51200;
+  }
+}
