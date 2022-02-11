@@ -28,7 +28,7 @@ const Main = () => {
             </div>
             <div className='chat-section'>
               {messageState.map((data) => (
-                <MessageCard key={data.userId} msg={data} />
+                <MessageCard key={data.date} msg={data} />
               ))}
             </div>
           </div>

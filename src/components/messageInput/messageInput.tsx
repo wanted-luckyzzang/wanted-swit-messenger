@@ -6,20 +6,20 @@ import { formatDate } from 'utils/formatDate';
 
 const MessageInput = () => {
   const dispatch = useDispatch();
-  const [input, setInput] = useState<string | undefined>('');
-  const [date, setDate] = useState<string | undefined>('');
+  const [input, setInput] = useState<string>('');
   // const userState = useSelector((state: StoreState) => state.auth);
 
   const handleOnSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(formatDate());
+    const formatedDate = formatDate();
+
+    dispatch(sendMessage({ content: input, date: formatedDate }));
     setInput('');
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setInput(value);
-    console.log(value);
   };
 
   return (

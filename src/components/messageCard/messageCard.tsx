@@ -12,7 +12,7 @@ const MessageCard = (props: { msg: MessageData }): JSX.Element => {
         </div>
         <div className='content'>
           <span className='name-date'>
-            <span className='name'>{props.msg.userName}</span>
+            <span className='name'>{props.msg.userId === 3 ? `${props.msg.userName}*` : props.msg.userName}</span>
             <span className='date'>{props.msg.date}</span>
           </span>
           <div className='message'>{props.msg.content}</div>
