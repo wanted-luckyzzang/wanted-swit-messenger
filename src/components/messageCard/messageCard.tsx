@@ -6,7 +6,7 @@ import ProfilePhoto from './profilePhoto';
 const MessageCard = (props: { msg: MessageData }): JSX.Element => {
   return (
     <div className="message-card-container">
-      <MessageModal />
+      <MessageModal data={props.msg} />
       <div className="message-card">
         <div className="user-profile">
           <ProfilePhoto image={props.msg.profileImage} />
