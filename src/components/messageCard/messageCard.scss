@@ -1,6 +1,11 @@
 .message-card-container {
   position: relative;
-  .messageCard {
+  &:hover {
+    .message-modal-container {
+      display: block;
+    }
+  }
+  .message-card {
     display: flex;
     padding: 15px 20px 15px 20px;
     cursor: pointer;
@@ -12,10 +17,10 @@
     .user-profile {
       width: 5%;
       height: 40px;
-      border-radius: 50%;
       margin-right: 20px;
 
       .image {
+        border-radius: 50%;
         width: 100%;
         height: 100%;
       }
