@@ -1,5 +1,5 @@
 import './messageCard.scss';
-const ProfilePhoto = (props: { image: string | undefined }): JSX.Element => {
+const ProfilePhoto = (props: { image: string }): JSX.Element => {
   return (
     <>
       {props.image ? (
