@@ -29,7 +29,9 @@ const MessageInput = () => {
 
   const handleOnSubmit = () => {
     if (input) {
-      dispatch(sendMessage({ ...userState, content: input, date: formatDate() }));
+      dispatch(
+        sendMessage({ ...userState, content: input, date: formatDate() })
+      );
       setInput('');
       setActive('nonactive');
     }
@@ -42,21 +44,32 @@ const MessageInput = () => {
     }
   };
 
+  const textAreaHandler = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && e.shiftKey === false) {
+      e.preventDefault();
+      handleOnSubmit();
+    }
+  };
+
   return (
     <>
       {userState.userName && (
-        <div className='input-container'>
-          <div className='input-wrap'>
+        <div className="input-container">
+          <div className="input-wrap">
             <textarea
-              className='message-input'
-              name='message-input'
+              className="message-input"
+              name="message-input"
               value={input}
               cols={180}
-              onKeyDown={() => onKeyHandler}
-              placeholder='메시지를 입력하세요..'
+              onKeyDown={textAreaHandler}
+              placeholder="메시지를 입력하세요.."
               onChange={handleOnChange}
             />
-            <SendButton onSubmit={handleOnSubmit} keyHandler={onKeyHandler} active={active} />
+            <SendButton
+              onSubmit={handleOnSubmit}
+              keyHandler={onKeyHandler}
+              active={active}
+            />
           </div>
         </div>
       )}
