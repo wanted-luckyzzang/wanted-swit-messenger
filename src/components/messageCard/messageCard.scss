@@ -15,14 +15,22 @@
     }
 
     .user-profile {
-      width: 5%;
+      width: 40px;
       height: 40px;
       margin-right: 20px;
 
-      .image {
+      .message-card-image {
         border-radius: 50%;
         width: 100%;
         height: 100%;
+      }
+
+      .no-message-card-image {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        background: url('../../assets/no-user.png');
+        background-size: cover;
       }
     }
 

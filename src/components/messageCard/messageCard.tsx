@@ -1,14 +1,15 @@
 import MessageModal from 'components/messageModal/messageModal';
 import { MessageData } from 'types/store';
 import './messageCard.scss';
+import ProfilePhoto from './profilePhoto';
 
 const MessageCard = (props: { msg: MessageData }): JSX.Element => {
   return (
     <div className='message-card-container'>
-      <MessageModal />
+      <MessageModal data={props.msg} />
       <div className='message-card'>
         <div className='user-profile'>
-          <img className='image' src={props.msg.profileImage} alt='profileImage' />
+          <ProfilePhoto image={props.msg.profileImage} />
         </div>
         <div className='content'>
           <span className='name-date'>

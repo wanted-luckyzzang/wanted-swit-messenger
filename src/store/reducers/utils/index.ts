@@ -1,3 +1,4 @@
-import { deleteMessage, sendMessage } from './messageUtils';
+import { deleteData, sendData } from './messageUtils';
+import getNewId from './authUtils';
 
-export { deleteMessage, sendMessage };
+export { deleteData, sendData, getNewId };

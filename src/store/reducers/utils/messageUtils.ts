@@ -1,20 +1,21 @@
 import { SendParams } from 'store/actions/message';
 import { MessageData } from 'types/store';
-import { ME } from 'store/data';
 
-export const sendMessage = (
+export const sendData = (
   messageState: MessageData[],
-  { content, date }: SendParams
+  { userId, userName, profileImage, content, date }: SendParams
 ) => {
   return [
     ...messageState,
     {
-      ...ME,
+      userId,
+      userName,
+      profileImage,
       content,
       date,
     },
   ];
 };
-export const deleteMessage = (messageState: MessageData[], date: string) => {
+export const deleteData = (messageState: MessageData[], date: string) => {
   return messageState.filter((message: MessageData) => message.date !== date);
 };

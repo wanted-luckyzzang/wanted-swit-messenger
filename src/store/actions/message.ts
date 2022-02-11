@@ -1,6 +1,9 @@
 import { DELETE_MESSAGE, SEND_MESSAGE } from './actionType';
 
 export interface SendParams {
+  userId: number;
+  userName: string;
+  profileImage: string;
   content: string;
   date: string;
 }
