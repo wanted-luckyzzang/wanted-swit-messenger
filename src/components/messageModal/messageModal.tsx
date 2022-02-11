@@ -15,7 +15,7 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
   return (
     <>
       <div className="message-modal-container">
-        <button className="message-modal-button">답글</button>
+        <button className="message-modal-button">답장</button>
         <button className="message-modal-button" onClick={handleDelete}>
           삭제
         </button>
