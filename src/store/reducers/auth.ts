@@ -9,7 +9,8 @@ export default function auth(state = ME, action: AuthActionTypes) {
     case AUTH_USER:
       return {
         ...state,
-        userName: action.payload.userName
+        userName: action.payload.userName,
+        profileImage: action.payload.profileImage,
       };
     case UNAUTH_USER:
       return state;
