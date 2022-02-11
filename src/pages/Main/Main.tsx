@@ -44,7 +44,7 @@ const Main = () => {
           {userState.userName ? (
             <span className="section-login" onClick={logoutHandler}>로그아웃</span>
           ) : (
-            <span className="section-login">로그인</span>
+            <span className="section-login" onClick={()=> {setLoginModal(true)}}>로그인</span>
           )}
           </div>
           <div className="chat-background">
