@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useBlockScroll } from 'hooks/useBlockScroll';
+import { useEffect, useState } from 'react';
 import { MessageData } from 'types/store';
 import DeleteModal from './deleteModal';
 import './messageModal.scss';
@@ -8,9 +9,7 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
     setModalActive(true);
   };
 
-  if (modalActive) {
-    document.body.style.overflow = 'hidden';
-  }
+  useBlockScroll(modalActive);
 
   return (
     <>

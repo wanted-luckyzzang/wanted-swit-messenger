@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
 import { logout } from 'store/actions';
@@ -6,6 +6,7 @@ import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
 import './Main.scss';
 import Login from 'components/Login/Login';
+import { useBlockScroll } from 'hooks/useBlockScroll';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -13,9 +14,8 @@ const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
   const userState = useSelector((state: StoreState) => state.auth);
-  if (LoginModal) {
-    document.body.style.overflow = 'hidden';
-  }
+ 
+ useBlockScroll(LoginModal);
 
   const logoutHandler = () => {
     dispatch(logout());
