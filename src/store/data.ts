@@ -10,6 +10,13 @@ export const ME: MeData = {
 
 export const MESSAGE_DATA: MessageData[] = [
   {
+    userId: 0,
+    userName: '고양이',
+    profileImage: 'https://i.esdrop.com/d/f/vm5UxhGOK0/DnrULlNaPn.jpg',
+    content: '냐냐냐냐냐냐냐냐냥냐냥',
+    date: '2022-02-11 11:39:29',
+  },
+  {
     userId: 1,
     userName: '럭키짱',
     profileImage: 'https://i.esdrop.com/d/f/KwrGH1p1Zl/m9s21g7ugw.png',
@@ -24,5 +31,19 @@ export const MESSAGE_DATA: MessageData[] = [
     content:
       'This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000',
     date: '2022-02-11 15:40:31',
+  },
+  {
+    userId: 1,
+    userName: '럭키짱',
+    profileImage: 'https://i.esdrop.com/d/f/KwrGH1p1Zl/m9s21g7ugw.png',
+    content: '777777 lucky zzang',
+    date: '2022-02-11 17:43:29',
+  },
+  {
+    userId: 2,
+    userName: '스윗',
+    profileImage: 'https://i.esdrop.com/d/f/KwrGH1p1Zl/TPlfZAwECA.png',
+    content: 'so sweet!',
+    date: '2022-02-11 22:40:31',
   },
 ];
