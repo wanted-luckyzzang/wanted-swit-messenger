@@ -1,7 +1,7 @@
 .SignUpContainer {
-  height: 600px;
+  height: 500px;
   width: 500px;
-  padding: 30px;
+  padding: 20px;
   background-color: #F8F8F8;
   display: flex;
   flex-direction: column;
@@ -12,64 +12,85 @@
 }
 
 .SignUpSection {
-  height: 75%;
-  margin: auto;
-
-  & > div:last-child {
-    padding: 25px 10px;
-    text-align: right;
-  }
+  width: 90%;
+  display: flex;
 }
 
 .SignUpProfileEdit {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  margin: auto;
 
+  .img-holder {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border: 3px black solid;
+    border-radius: 5px;
+    margin-top: 1rem;
+
+    & > img {
+      width: 150px;
+    height: 150px;
+    object-fit: cover;
+    }
+  }
+ 
   & > div {
+    margin: 15px 0;
+  }
+  & > input {
+    display: none;
+  }
+  & > div > label {
+    cursor: pointer;
+  }
+
+  & > button:first-child {
     width: 70px;
     height: 70px;
     display: flex;
+    position: relative;
     cursor: pointer;
-
-    & > img {
-      border-radius: 50%;
-    }
+    border-radius: 50%;
+    border: 0px solid #DBDBDB;
   }
-
-  // & > input {
-  //   width: 100px;
-  //   height: 100px;
-  // }
 }
 
 // 로그인, 회원가입 버튼
-.SignUpButton {
-  height: 40px;
-  width: 80px;
-  margin: auto 0;
-  border: 1px solid #DBDBDB;
-  background-color: transparent;
-  border-radius: 5px;
-  font-weight: lighter;
-  font-size: 14px;
-  cursor: pointer;
 
-  &:hover {
-    background-color: #DBDBDB;
-    color: #FFFFFF;
-    font-weight: bold;
+.SignUpButtonBox {
+  text-align: right;
+  margin-top: 15px;
+
+  .SignUpButton {
+    height: 40px;
+    width: 80px;
+    margin: auto 0;
+    border: 1px solid #DBDBDB;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: lighter;
+    font-size: 14px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #DBDBDB;
+      color: #FFFFFF;
+      font-weight: bold;
+    }
   }
 }
 
+
 // 로그인, 회원가입 입력란
 .SignUpInfo {
-  padding: 10px;
 
   & > h4 {
-    margin: 15px 0 10px 0;
+    margin: 10px 0;
   }
   & > input {
-    width: 380px;
+    width: 200px;
     height: 40px;
     border-radius: 5px;
     border: 1px solid #DBDBDB;
@@ -77,5 +98,17 @@
   }
 }
 
-// 로그인 페이지 간격조정
+// 로그인 페이지
+  .LoginSection {
+    margin: 0 auto;
+    & > div {
+      margin: 40px 0;
+    }
+    & > div:last-child {
+      margin: -10px 0;
+      text-align: right;
+    }
+  }
+
+
 
