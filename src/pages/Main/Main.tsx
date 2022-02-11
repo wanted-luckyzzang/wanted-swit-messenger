@@ -19,8 +19,7 @@ const Main = () => {
   }
 
   const logoutHandler = () => {
-    const userName = userState.userName;
-    dispatch(logout({userName}));
+    dispatch(logout());
     alert("로그아웃 되었습니다.")
   }
 
