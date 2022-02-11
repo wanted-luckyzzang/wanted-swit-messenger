@@ -1,3 +1,3 @@
-import { deleteMessage, sendMessage } from './messageUtils';
+import { deleteData, sendData } from './messageUtils';
 
-export { deleteMessage, sendMessage };
+export { deleteData, sendData };
