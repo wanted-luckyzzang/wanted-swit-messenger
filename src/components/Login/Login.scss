@@ -68,6 +68,7 @@
       & > label {
         cursor: pointer;
         font-size: 14px;
+        font-weight: bold;
       }
     }
   }
@@ -76,31 +77,34 @@
     margin-top: 30px;
 
     & > input {
-      width: 200px;
-      height: 30px;
+      width: 210px;
+      height: 35px;
       border-radius: 5px;
       border: 2px solid #DBDBDB;
-      text-indent: 15px;
+      text-indent: 30px;
       font-size: 14px;
     }
   }
 
   .login-button {
     height: 40px;
-    width: 100px;
+    width: 120px;
     margin: auto 0;
     border: 2px solid #DBDBDB;
-    background-color: transparent;
     border-radius: 5px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 30px;
     cursor: pointer;
+    background-color: #d1d1d1;
+    color: black;
+    opacity: 0.4;
   
     &:hover {
-      background-color: #DBDBDB;
+      background-color: #d1d1d1;
       color: #FFFFFF;
-      font-weight: bold;
+      opacity: 1;
+      
     }
   }
 }
