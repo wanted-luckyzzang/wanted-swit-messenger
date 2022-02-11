@@ -7,6 +7,11 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
   const handleDelete = () => {
     setModalActive(true);
   };
+
+  if (modalActive) {
+    document.body.style.overflow = 'hidden';
+  }
+
   return (
     <>
       <div className="message-modal-container">
@@ -15,7 +20,9 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
           삭제
         </button>
       </div>
-      {modalActive && <DeleteModal data={props.data} />}
+      {modalActive && (
+        <DeleteModal data={props.data} setModalActive={setModalActive} />
+      )}
     </>
   );
 };
