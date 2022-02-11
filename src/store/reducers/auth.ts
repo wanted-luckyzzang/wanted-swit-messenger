@@ -8,12 +8,12 @@ export default function auth(state = ME, action: AuthActionTypes) {
   switch (action.type) {
     case AUTH_USER:
       return {
-        ...state,
+        userId: action.payload.userId,
         userName: action.payload.userName,
         profileImage: action.payload.profileImage,
       };
     case UNAUTH_USER:
-      return state;
+      return ME;
     default:
       return state;
   }

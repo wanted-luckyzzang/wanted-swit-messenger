@@ -33,7 +33,7 @@ const Login = ({setLoginModal}: ModalType) => {
 
   const submitHandler = () => {
     if(profileImage)
-      dispatch(login({userName, profileImage}))
+      // dispatch(login({userName, profileImage}))
     alert("환영합니다😍")
     navigate("/");
   }
