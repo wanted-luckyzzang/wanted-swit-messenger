@@ -1,5 +1,5 @@
 import { MessageData } from 'types/store';
-import '../../index.scss';
+import './messageModal.scss';
 
 const DeleteModalCard = (props: { data: MessageData }): JSX.Element => {
   return (
