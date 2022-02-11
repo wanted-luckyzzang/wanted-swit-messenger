@@ -1,9 +1,10 @@
 import { MeData, MessageData } from 'types/store';
 
 export const ME: MeData = {
-  userId: 3,
+  userId: 0,
   userName: undefined,
-  profileImage: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+  profileImage:
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
 };
 
 export const MESSAGE_DATA: MessageData[] = [
@@ -22,10 +23,5 @@ export const MESSAGE_DATA: MessageData[] = [
     content:
       'This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000This is where the marketing event is held. Come and play! Swit Restaurant at 000 ABC St,  San Francisco, CA 00000',
     date: '2022-02-11 15:40:31',
-  },
-  {
-    ...ME,
-    content: '',
-    date: '2022-02-11 11:07:01',
   },
 ];

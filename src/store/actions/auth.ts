@@ -1,14 +1,15 @@
 import { AUTH_USER, UNAUTH_USER } from './actionType';
 
 export interface LoginParams {
+  userId: number;
   userName: string | undefined;
-  profileImage : string;
+  profileImage: string;
 }
 
-const login = ({ userName, profileImage }: LoginParams) => {
+const login = ({ userId, userName, profileImage }: LoginParams) => {
   return {
     type: AUTH_USER,
-    payload: { userName, profileImage },
+    payload: { userId, userName, profileImage },
   };
 };
 
@@ -18,4 +19,4 @@ const logout = () => {
   };
 };
 
-export {login, logout };
+export { login, logout };
