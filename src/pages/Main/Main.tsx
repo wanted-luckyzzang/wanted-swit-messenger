@@ -3,7 +3,7 @@ import MessageCard from 'components/messageCard/messageCard';
 
 const Main = () => {
   return (
-    <div className='container'>
+    <div className='main-container'>
       <div className='header'>
         <div className='home-wrap'>
           <div className='home-icon'></div>

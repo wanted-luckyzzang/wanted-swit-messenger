@@ -1,16 +1,19 @@
 import { MeData, MessageData } from 'types/store';
 
 export const ME: MeData = {
-  userId: 1,
+  userId: 3,
   userName: undefined,
   profileImage: undefined,
 };
 
 export const MESSAGE_DATA: MessageData[] = [
   {
-    ...ME,
-    content: '',
-    date: '2022-02-11 11:07:01',
+    userId: 1,
+    userName: '럭키짱',
+    profileImage: 'https://i.esdrop.com/d/f/KwrGH1p1Zl/m9s21g7ugw.png',
+    content:
+      '인생은 한 방! 밀리면 밀릴수록, 처참하면 처참할수록, 그야말로 비참한 상황에서 피와 한을 한껏 온 몸으로 받아들인 후, 어둠 속에서 솟구치는 한 줄기 빛처럼 가슴 속에서 튀어나오는 뭉클한 그것! 난 그 한 방을 믿어!',
+    date: '2022-02-11 15:43:29',
   },
   {
     userId: 2,
@@ -21,10 +24,8 @@ export const MESSAGE_DATA: MessageData[] = [
     date: '2022-02-11 15:40:31',
   },
   {
-    userId: 3,
-    userName: '럭키짱',
-    profileImage: 'https://i.esdrop.com/d/f/KwrGH1p1Zl/m9s21g7ugw.png',
+    ...ME,
     content: '',
-    date: '2022-02-11 15:43:29',
+    date: '2022-02-11 11:07:01',
   },
 ];
