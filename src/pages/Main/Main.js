@@ -1,23 +1,30 @@
-import React from 'react';
+import './Main.scss';
 
 const Main = () => {
   return (
     <div className='container'>
-      <header>Swit</header>
-      <main>
-        <div className='sidebar'></div>
-        <section>
-          <div className='nav'>General</div>
+      <div className='header'>
+        <div className='home-wrap'>
+          <div className='home-icon'></div>
+        </div>
+        <div className='header-title'>Swit</div>
+      </div>
+      <div className='main'>
+        <div className='sidebar'>
+          <div className='move-to-chat'></div>
+        </div>
+        <div className='section'>
+          <div className='nav'>💛General</div>
           <div className='chat-background'>
             <div className='date-line'>
               <div className='line'></div>
-              <span className='date'></span>
+              <span className='date'>Thursday, August 22, 2019</span>
               <div className='line'></div>
             </div>
             <div className='chat-section'></div>
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
     </div>
   );
 };
