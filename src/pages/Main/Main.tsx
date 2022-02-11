@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
@@ -33,7 +34,11 @@ const Main = () => {
           </div>
           <div className='header-title'>Swit</div>
         </div>
-        <div className="section">
+        <div className='main'>
+          <div className='sidebar'>
+            <div className='move-to-chat'></div>
+          </div>
+          <div className="section">
           <div className='section-navBox'>
           <span className="nav">💛General</span>
           {userState.userName ? (
@@ -50,11 +55,12 @@ const Main = () => {
             </div>
             <div className="chat-section">
               {messageState.map((data) => (
-                <MessageCard key={data.userId} msg={data} />
+                <MessageCard key={data.date} msg={data} />
               ))}
             </div>
             <MessageInput />
           </div>
+        </div>
         </div>
       </div>
     </>
