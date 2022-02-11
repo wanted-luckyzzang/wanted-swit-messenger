@@ -1,28 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './messageInput.scss';
 import { sendMessage } from 'store/actions';
 import { formatDate } from 'utils/formatDate';
+import SendButton from 'components/sendButton/sendButton';
 
 const MessageInput = () => {
   const dispatch = useDispatch();
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useState('');
+  const [active, setActive] = useState('nonactive');
   // const userState = useSelector((state: StoreState) => state.auth);
+
+  useEffect(() => {
+    setInput('');
+    setActive('nonactive');
+  }, []);
+
+  // (회신) 붙이기: '답장'인지 아닌지 여부로 판단
+  useEffect(() => {}, []);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
+    setActive('active');
+
+    if (!e.target.value) setActive('nonactive');
   };
 
   const handleOnSubmit = () => {
-    const formatedDate = formatDate();
-
-    dispatch(sendMessage({ content: input, date: formatedDate }));
-    setInput('');
+    if (input) {
+      dispatch(sendMessage({ content: input, date: formatDate() }));
+      setInput('');
+      setActive('nonactive');
+    }
   };
 
   const onKeyHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (input && e.key === 'Enter') {
+    if (e.key === 'Enter' && e.shiftKey === false) {
       e.preventDefault();
+
       handleOnSubmit();
     }
   };
@@ -38,9 +53,7 @@ const MessageInput = () => {
           placeholder='메시지를 입력하세요..'
           onChange={handleOnChange}
         />
-        <button className='send-btn' onClick={handleOnSubmit} onKeyPress={onKeyHandler}>
-          전송
-        </button>
+        <SendButton onSubmit={handleOnSubmit} keyHandler={onKeyHandler} active={active} />
       </div>
     </div>
   );
