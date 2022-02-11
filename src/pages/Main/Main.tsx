@@ -1,17 +1,27 @@
+
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
+import { logout } from 'store/actions';
 import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
 import './Main.scss';
 import Login from 'components/Login/Login';
 
 const Main = () => {
+  const dispatch = useDispatch();
+
   const messageState = useSelector((state: StoreState) => state.message);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
   const userState = useSelector((state: StoreState) => state.auth);
   if (LoginModal) {
     document.body.style.overflow = 'hidden';
+  }
+
+  const logoutHandler = () => {
+    const userName = userState.userName;
+    dispatch(logout({userName}));
+    alert("로그아웃 되었습니다.")
   }
 
   return (
@@ -28,22 +38,29 @@ const Main = () => {
           <div className='sidebar'>
             <div className='move-to-chat'></div>
           </div>
-          <div className='section'>
-            <div className='nav'>💛General</div>
-            <div className='chat-background'>
-              <div className='date-line'>
-                <div className='line'></div>
-                <span className='date'>Thursday, August 22, 2019</span>
-                <div className='line'></div>
-              </div>
-              <div className='chat-section'>
-                {messageState.map((data) => (
-                  <MessageCard key={data.date} msg={data} />
-                ))}
-              </div>
+          <div className="section">
+          <div className='section-navBox'>
+          <span className="nav">💛General</span>
+          {userState.userName ? (
+            <span className="section-login" onClick={logoutHandler}>로그아웃</span>
+          ) : (
+            <span className="section-login">로그인</span>
+          )}
+          </div>
+          <div className="chat-background">
+            <div className="date-line">
+              <div className="line"></div>
+              <span className="date">Thursday, August 22, 2019</span>
+              <div className="line"></div>
+            </div>
+            <div className="chat-section">
+              {messageState.map((data) => (
+                <MessageCard key={data.date} msg={data} />
+              ))}
             </div>
             <MessageInput />
           </div>
+        </div>
         </div>
       </div>
     </>
