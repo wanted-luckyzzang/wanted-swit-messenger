@@ -5,7 +5,11 @@ import { login } from 'store/actions';
 import "./Login.scss";
 import cancel from "../../assets/cancel.png"
 
-const Login = ({setLoginModal}) => {
+interface ModalType {
+  setLoginModal: (loginModal : boolean) => void;
+}
+
+const Login = ({setLoginModal}: ModalType) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [userName, setUserName] = useState<string>()
@@ -31,7 +35,7 @@ const Login = ({setLoginModal}) => {
     if(profileImage)
       dispatch(login({userName, profileImage}))
     alert("환영합니다😍")
-    navigate("/main");
+    navigate("/");
   }
 
   const CancelShowModal = () => {
