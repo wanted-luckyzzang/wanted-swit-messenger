@@ -7,9 +7,9 @@ const MessageCard = () => {
   const messageState = useSelector((state: StoreState) => state.message)[1];
   console.log(messageState);
   return (
-    <div className="container">
+    <div className="message-card-container">
       <MessageModal />
-      <div className="messageCard">
+      <div className="message-card">
         <div className="user-profile">
           <img
             className="image"
