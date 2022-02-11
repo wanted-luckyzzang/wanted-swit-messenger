@@ -7,14 +7,14 @@ const Test = () => {
   const [userId, setUserId] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPwd] = useState('')
+  const [profileImg, setProfileImg] = useState(
+    {profileImage: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+  );
   // const [userInfo, setUserInfo] = useState({
   //   userId: "",
   //   username: "",
   //   password: "",
   // })
-  const [profileImg, setProfileImg] = useState(
-    {profileImage: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
-  );
   
   const userData = {
     userId: userId,
