@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
@@ -20,47 +19,51 @@ const Main = () => {
 
   const logoutHandler = () => {
     const userName = userState.userName;
-    dispatch(logout({userName}));
-    alert("로그아웃 되었습니다.")
-  }
+    dispatch(logout({ userName }));
+    alert('로그아웃 되었습니다.');
+  };
 
   return (
     <>
-      {LoginModal && !userState.userName && <Login setLoginModal={setLoginModal} />}
-      <div className='main-container'>
-        <div className='header'>
-          <div className='home-wrap'>
-            <div className='home-icon'></div>
+      {LoginModal && !userState.userName && (
+        <Login setLoginModal={setLoginModal} />
+      )}
+      <div className="main-container">
+        <div className="header">
+          <div className="home-wrap">
+            <div className="home-icon"></div>
           </div>
-          <div className='header-title'>Swit</div>
+          <div className="header-title">Swit</div>
         </div>
-        <div className='main'>
-          <div className='sidebar'>
-            <div className='move-to-chat'></div>
+        <div className="main">
+          <div className="sidebar">
+            <div className="move-to-chat"></div>
           </div>
           <div className="section">
-          <div className='section-navBox'>
-          <span className="nav">💛General</span>
-          {userState.userName ? (
-            <span className="section-login" onClick={logoutHandler}>로그아웃</span>
-          ) : (
-            <span className="section-login">로그인</span>
-          )}
-          </div>
-          <div className="chat-background">
-            <div className="date-line">
-              <div className="line"></div>
-              <span className="date">Thursday, August 22, 2019</span>
-              <div className="line"></div>
+            <div className="section-navBox">
+              <span className="nav">💛General</span>
+              {userState.userName ? (
+                <span className="section-login" onClick={logoutHandler}>
+                  로그아웃
+                </span>
+              ) : (
+                <span className="section-login">로그인</span>
+              )}
             </div>
-            <div className="chat-section">
-              {messageState.map((data) => (
-                <MessageCard key={data.date} msg={data} />
-              ))}
+            <div className="chat-background">
+              <div className="date-line">
+                <div className="line"></div>
+                <span className="date">Thursday, August 22, 2019</span>
+                <div className="line"></div>
+              </div>
+              <div className="chat-section">
+                {messageState.map((data, idx) => (
+                  <MessageCard key={idx} msg={data} />
+                ))}
+              </div>
+              <MessageInput />
             </div>
-            <MessageInput />
           </div>
-        </div>
         </div>
       </div>
     </>
