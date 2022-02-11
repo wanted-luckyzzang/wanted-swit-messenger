@@ -1,7 +1,7 @@
 export interface MeData {
   userId: number;
-  userName: string | null;
-  profileImage: string | null;
+  userName: string | undefined;
+  profileImage: string | undefined;
 }
 
 export interface MessageData extends MeData {
