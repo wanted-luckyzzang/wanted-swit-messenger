@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from 'store/actions';
-import './Login.scss';
 import cancel from '../../assets/cancel.png';
+import { login } from 'store/actions';
 import { DEFAULT_PROFILE } from 'store/data';
 import { StoreState } from 'types/store';
 import { getNewId } from 'store/reducers/utils';
+import './Login.scss';
 
 interface ModalType {
   setLoginModal: (loginModal: boolean) => void;
@@ -19,7 +19,7 @@ const Login = ({ setLoginModal }: ModalType) => {
   const [profileImage, setProfileImg] = useState<string>(DEFAULT_PROFILE);
   const messageState = useSelector((state: StoreState) => state.message);
 
-  const imageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const imageHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
@@ -28,7 +28,7 @@ const Login = ({ setLoginModal }: ModalType) => {
       }
     };
     if (e.target.files) reader.readAsDataURL(e.target.files[0]);
-  };
+  }, []);
 
   const ChangeHandler = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,9 +46,9 @@ const Login = ({ setLoginModal }: ModalType) => {
     navigate('/');
   };
 
-  const CancelShowModal = () => {
+  const CancelShowModal = useCallback(() => {
     setLoginModal(false);
-  };
+  }, [setLoginModal]);
 
   return (
     <>

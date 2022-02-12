@@ -1,4 +1,6 @@
+import React from 'react';
 import './messageCard.scss';
+
 const ProfilePhoto = (props: { image: string }): JSX.Element => {
   return (
     <>
@@ -15,4 +17,4 @@ const ProfilePhoto = (props: { image: string }): JSX.Element => {
   );
 };
 
-export default ProfilePhoto;
+export default React.memo(ProfilePhoto);

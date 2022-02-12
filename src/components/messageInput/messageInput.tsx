@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './messageInput.scss';
 import { formatDate } from 'utils/formatDate';
-import SendButton from 'components/sendButton/sendButton';
 import { answerClean, sendMessage } from 'store/actions';
 import { StoreState } from 'types/store';
+import SendButton from 'components/sendButton/sendButton';
+import './messageInput.scss';
 
 const MessageInput = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const MessageInput = () => {
   const userState = useSelector((state: StoreState) => state.auth);
   const answerState = useSelector((state: StoreState) => state.answer);
   const scrollEl = useRef<HTMLDivElement>(null);
+  const textEl = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (answerState.content) {
@@ -37,19 +38,21 @@ const MessageInput = () => {
     scrollToBottom();
   }, [scrollToBottom]);
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-    setActive('active');
-    if (!e.target.value) setActive('nonactive');
-  };
+  const handleOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setInput(e.target.value);
+      setActive('active');
+      if (!e.target.value) setActive('nonactive');
+    },
+    []
+  );
 
   const handleOnSubmit = () => {
-    const textEl = document.getElementById('input-msg');
-    if (textEl?.innerHTML) {
+    if (input.length) {
       dispatch(
         sendMessage({
           ...userState,
-          content: textEl.innerHTML,
+          content: input,
           date: formatDate(),
         })
       );
@@ -80,8 +83,8 @@ const MessageInput = () => {
         <div className="input-container">
           <div className="input-wrap">
             <textarea
+              ref={textEl}
               className="message-input"
-              id="input-msg"
               name="message-input"
               value={input}
               cols={180}
