@@ -89,7 +89,7 @@ const Main = () => {
                 <span className='date'>Thursday, August 22, 2019</span>
                 <div className='line'></div>
               </div>
-              <div className='chat-section' ref={scrollRef}>
+              <div className="chat-section" ref={scrollRef}>
                 {messageState.map((data, idx) => (
                   <MessageCard key={idx} msg={data} />
                 ))}
