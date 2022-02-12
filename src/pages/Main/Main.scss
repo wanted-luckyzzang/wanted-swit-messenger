@@ -1,3 +1,6 @@
+$main-border: #e6e5e9;
+$main-white: #ffffff;
+
 .main-container {
   width: 100%;
   display: flex;
@@ -13,14 +16,14 @@
   .header {
     display: flex;
     justify-content: flex-start;
-    background: #fff;
+    background: $main-white;
     width: 100%;
     height: 57px;
     padding: 8px 20px;
     position: fixed;
     top: 0;
     z-index: 5;
-    border-bottom: 1px solid #e6e5e9;
+    border-bottom: 1px solid $main-border;
 
     @media screeen and (min-width: 1440px) {
       height: 100px;
@@ -31,7 +34,7 @@
       width: 22px;
       height: 36px;
       padding-right: 18px;
-      border-right: 1px solid #e6e5e9;
+      border-right: 1px solid $main-border;
       margin: auto 0;
 
       .home-icon {
@@ -55,22 +58,23 @@
         margin: auto 0;
         cursor: pointer;
         margin-right: 30px;
+      }
+      .section-login {
+        display: flex;
+        align-items: center;
+        color: #343434;
+        outline: none;
+        border: none;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: #dedede 0 2px 8px;
 
-        .section-login {
-          display: flex;
-          align-items: center;
-          color: #343434;
-          outline: none;
-          border: none;
-          font-size: 20px;
-          font-weight: 700;
-          cursor: pointer;
-          border-radius: 5px;
-          box-shadow: #dedede 0 2px 8px;
-
-          &:hover {
-            opacity: 0.5;
-          }
+        &:hover {
+          color: $main-white;
+          background: #343434;
         }
       }
     }
@@ -78,13 +82,13 @@
 
   .main {
     display: flex;
-    height: 150vh;
+    height: 50vh;
 
     .sidebar {
       width: 60px;
       height: 100%;
       padding: 35px 1px 0 0;
-      background: #fff;
+      background: $main-white;
       border-right: 1px solid #e6e5e9;
       position: fixed;
       top: 74px;
@@ -102,7 +106,6 @@
       flex-direction: column;
       width: 100vw;
       padding-left: 62px;
-      background: #f8f8f8;
 
       .section-navBox {
         display: flex;
@@ -112,7 +115,7 @@
         width: 100%;
         height: 100px;
         z-index: 5;
-        background: #fff;
+        background: $main-white;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         padding: 0 100px 0 28px;
 
@@ -154,7 +157,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        // overflow: scroll;
+        padding-bottom: 150px;
       }
     }
   }

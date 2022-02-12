@@ -1,8 +1,12 @@
+$login-white: #ffffff;
+$login-border: #dbdbdb;
+$login-background: #d1d1d1;
+
 .login-container {
   height: 480px;
   width: 350px;
   padding: 25px;
-  background-color: #FFFFFF;
+  background-color: $login-white;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -50,14 +54,14 @@
       margin: auto;
       width: 100px;
       height: 100px;
-      border: 2px solid #DBDBDB;
+      border: 2px solid $login-border;
       border-radius: 5px;
       margin-top: 1rem;
 
       & > img {
         width: 100px;
-      height: 100px;
-      object-fit: cover;
+        height: 100px;
+        object-fit: cover;
       }
     }
     & > input {
@@ -80,7 +84,7 @@
       width: 210px;
       height: 35px;
       border-radius: 5px;
-      border: 2px solid #DBDBDB;
+      border: 2px solid $login-border;
       text-indent: 30px;
       font-size: 14px;
     }
@@ -90,21 +94,20 @@
     height: 40px;
     width: 120px;
     margin: auto 0;
-    border: 2px solid #DBDBDB;
+    border: 2px solid $login-border;
     border-radius: 5px;
     font-weight: bold;
     font-size: 16px;
     margin-top: 30px;
     cursor: pointer;
-    background-color: #d1d1d1;
-    color: black;
+    background-color: $login-background;
+    color: #000000;
     opacity: 0.4;
-  
+
     &:hover {
-      background-color: #d1d1d1;
-      color: #FFFFFF;
+      background-color: $login-background;
+      color: $login-white;
       opacity: 1;
-      
     }
   }
 }

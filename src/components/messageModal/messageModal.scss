@@ -1,7 +1,12 @@
+$modal-white: #ffffff;
+$modal-border: #e6e6e8;
+$modal-text: #343434;
+$modal-primary: #a51200;
+
 .message-modal-container {
   display: flex;
   justify-content: center;
-  border: 1px solid #e6e6e8;
+  border: 1px solid $modal-border;
   position: absolute;
   top: -10px;
   right: 25px;
@@ -17,11 +22,13 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
     &:hover {
       opacity: 0.7;
     }
   }
 }
+
 .outside {
   box-sizing: border-box;
   position: fixed;
@@ -35,6 +42,7 @@
   opacity: 0.5;
   z-index: 7;
 }
+
 .delete-modal-wrapper {
   position: fixed;
   top: 50%;
@@ -50,7 +58,7 @@
   max-height: 290px;
   min-width: 280px;
   z-index: 10;
-  background-color: #fff;
+  background-color: $modal-white;
   display: flex;
   flex-direction: column;
   padding: 15px 15px 45px 15px;
@@ -61,28 +69,29 @@
     justify-content: flex-end;
 
     .delete-modal-cancel {
-      border: 1px solid #e6e6e8;
+      border: 1px solid $modal-border;
       color: #8b8e95;
       cursor: pointer;
       font-weight: 400;
       text-align: center;
       margin-right: 10px;
       padding: 5px 15px;
+
       &:hover {
         opacity: 0.7;
       }
     }
 
     .delete-modal-delete {
-      background: #a51200;
-      border: 1px solid #a51200;
+      background: $modal-primary;
+      border: 1px solid $modal-primary;
       border-radius: 3px;
-      color: #fff;
-      cursor: pointer;
+      color: $modal-white;
       font-size: 12px;
       font-weight: 400;
       text-align: center;
       padding: 5px 15px;
+      cursor: pointer;
 
       &:hover {
         opacity: 0.7;
@@ -98,7 +107,7 @@
     line-height: 36px;
     font-size: 26px;
     font-weight: 700;
-    color: #343434;
+    color: $modal-text;
 
     .delete-modal-esc {
       width: 30px;
@@ -114,14 +123,16 @@
   .delete-modal-mid {
     display: flex;
     flex-direction: column;
+
     .delete-modal-mid-label {
       margin-bottom: 10px;
       line-height: normal;
       font-size: 14px;
-      color: #343434;
+      color: $modal-text;
       font-weight: 400;
       margin-top: 20px;
     }
+
     .delete-modal-card-wrapper {
       display: flex;
       min-width: 560px;
@@ -134,25 +145,29 @@
         flex-direction: column;
         width: 95%;
         margin-bottom: 20px;
+
         .delete-modal-name-date {
           display: flex;
           align-items: center;
           margin-bottom: 10px;
+
           .delete-modal-name {
             margin-right: 8px;
             font-weight: 700;
-            color: #343434;
+            color: $modal-text;
             font-size: 14px;
           }
+
           .delete-modal-date {
             color: #8b8e95;
             font-size: 12px;
           }
         }
+
         .delete-modal-message {
           word-break: break-all;
           font-size: 14px;
-          color: #343434;
+          color: $modal-text;
         }
       }
 
