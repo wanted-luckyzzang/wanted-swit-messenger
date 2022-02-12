@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './messageInput.scss';
 import { formatDate } from 'utils/formatDate';
 import SendButton from 'components/sendButton/sendButton';
-import { sendMessage } from 'store/actions';
+import { answerClean, sendMessage } from 'store/actions';
 import { StoreState } from 'types/store';
 
 const MessageInput = () => {
@@ -11,27 +11,32 @@ const MessageInput = () => {
   const [input, setInput] = useState('');
   const [active, setActive] = useState('nonactive');
   const userState = useSelector((state: StoreState) => state.auth);
+  const answerState = useSelector((state: StoreState) => state.answer);
 
   useEffect(() => {
-    setInput('');
-    setActive('nonactive');
-  }, []);
-
-  // (회신) 붙이기: '답장'인지 아닌지 여부로 판단
-  useEffect(() => {}, []);
+    if (answerState.content) {
+      setInput(answerState.content);
+      setActive('active');
+    }
+  }, [answerState]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
     setActive('active');
-
     if (!e.target.value) setActive('nonactive');
   };
 
   const handleOnSubmit = () => {
-    if (input) {
+    const textEl = document.getElementById('input-msg');
+    if (textEl?.innerHTML) {
       dispatch(
-        sendMessage({ ...userState, content: input, date: formatDate() })
+        sendMessage({
+          ...userState,
+          content: textEl.innerHTML,
+          date: formatDate(),
+        })
       );
+      dispatch(answerClean());
       setInput('');
       setActive('nonactive');
     }
@@ -49,6 +54,9 @@ const MessageInput = () => {
       e.preventDefault();
       handleOnSubmit();
     }
+    if (e.key === 'Backspace') {
+      dispatch(answerClean());
+    }
   };
 
   return (
@@ -58,12 +66,14 @@ const MessageInput = () => {
           <div className="input-wrap">
             <textarea
               className="message-input"
+              id="input-msg"
               name="message-input"
               value={input}
               cols={180}
               onKeyDown={textAreaHandler}
               placeholder="메시지를 입력하세요.."
               onChange={handleOnChange}
+              autoFocus={true}
             />
             <SendButton
               onSubmit={handleOnSubmit}
