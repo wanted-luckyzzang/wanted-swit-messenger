@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './messageInput.scss';
 import { formatDate } from 'utils/formatDate';
@@ -12,6 +12,7 @@ const MessageInput = () => {
   const [active, setActive] = useState('nonactive');
   const userState = useSelector((state: StoreState) => state.auth);
   const answerState = useSelector((state: StoreState) => state.answer);
+  const scrollEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (answerState.content) {
@@ -21,6 +22,20 @@ const MessageInput = () => {
       setInput('');
     }
   }, [answerState]);
+
+  const scrollToBottom = useCallback(() => {
+    if (input) {
+      scrollEl.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      });
+    }
+  }, [input]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [scrollToBottom]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
