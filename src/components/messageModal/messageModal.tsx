@@ -1,7 +1,7 @@
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { answerMessage } from 'store/actions';
 import { useBlockScroll } from 'hooks/useBlockScroll';
-import React, { useState } from 'react';
 import { MessageData } from 'types/store';
 import DeleteModal from './deleteModal';
 import './messageModal.scss';
@@ -9,18 +9,20 @@ import './messageModal.scss';
 const MessageModal = (props: { data: MessageData }): JSX.Element => {
   const [modalActive, setModalActive] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const handleDelete = () => {
+
+  const handleDelete = useCallback(() => {
     setModalActive(true);
-  };
+  }, []);
+
+  const answerHandler = useCallback(() => {
+    const { userName, content } = props.data;
+    const answer = `${userName}\n${content}\n(회신)\n`;
+    dispatch(answerMessage({ content: answer }));
+  }, [dispatch, props.data]);
 
   if (modalActive) {
     document.body.style.overflow = 'hidden';
   }
-  const answerHandler = () => {
-    const { userName, content } = props.data;
-    const answer = `${userName}\n${content}\n(회신)\n`;
-    dispatch(answerMessage({ content: answer }));
-  };
   useBlockScroll(modalActive);
 
   return (
@@ -40,4 +42,4 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
   );
 };
 
-export default React.memo(MessageModal) ;
+export default React.memo(MessageModal);
