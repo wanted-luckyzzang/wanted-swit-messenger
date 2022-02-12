@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
 import { answerClean, logout } from 'store/actions';
@@ -12,12 +12,27 @@ const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
   const userState = useSelector((state: StoreState) => state.auth);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
-  
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const logoutHandler = () => {
     dispatch(logout());
     dispatch(answerClean());
     alert('로그아웃 되었습니다.');
   };
+
+  const scrollToBottom = useCallback(() => {
+    if (messageState && scrollRef.current) {
+      scrollRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'nearest',
+      });
+    }
+  }, [messageState]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messageState]);
 
   return (
     <>
@@ -76,7 +91,7 @@ const Main = () => {
                 <span className="date">Thursday, August 22, 2019</span>
                 <div className="line"></div>
               </div>
-              <div className="chat-section">
+              <div className="chat-section" ref={scrollRef}>
                 {messageState.map((data, idx) => (
                   <MessageCard key={idx} msg={data} />
                 ))}
