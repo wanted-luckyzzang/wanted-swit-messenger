@@ -79,27 +79,28 @@ const MessageInput = () => {
   return (
     <>
       {userState.userName && (
-        <div className='input-wrapper'>
-        <div className="input-container">
-          <div className="input-wrap">
-            <textarea
-              ref={textEl}
-              className="message-input"
-              name="message-input"
-              value={input}
-              cols={180}
-              onKeyDown={textAreaHandler}
-              placeholder="메시지를 입력하세요.."
-              onChange={handleOnChange}
-              autoFocus
-            />
-            <SendButton
-              onSubmit={handleOnSubmit}
-              keyHandler={onKeyHandler}
-              active={active}
-            />
+        <div className="input-wrapper">
+          <div className="input-container">
+            <div className="input-wrap">
+              <textarea
+                ref={textEl}
+                className="message-input"
+                name="message-input"
+                value={input}
+                cols={180}
+                onKeyDown={textAreaHandler}
+                placeholder="메시지를 입력하세요.."
+                onChange={handleOnChange}
+                wrap="hard"
+                autoFocus
+              />
+              <SendButton
+                onSubmit={handleOnSubmit}
+                keyHandler={onKeyHandler}
+                active={active}
+              />
+            </div>
           </div>
-        </div>
         </div>
       )}
     </>
