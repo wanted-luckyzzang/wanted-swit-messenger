@@ -1,5 +1,5 @@
 import { useBlockScroll } from 'hooks/useBlockScroll';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { MessageData } from 'types/store';
 import DeleteModal from './deleteModal';
 import './messageModal.scss';
@@ -9,7 +9,7 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
     setModalActive(true);
   };
 
-  useBlockScroll(modalActive);
+  // useBlockScroll(modalActive);
 
   return (
     <>
@@ -26,4 +26,4 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
   );
 };
 
-export default MessageModal;
+export default React.memo(MessageModal) ;
