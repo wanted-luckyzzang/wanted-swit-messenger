@@ -17,6 +17,8 @@ const MessageInput = () => {
     if (answerState.content) {
       setInput(answerState.content);
       setActive('active');
+    } else {
+      setInput('');
     }
   }, [answerState]);
 
@@ -54,9 +56,6 @@ const MessageInput = () => {
       e.preventDefault();
       handleOnSubmit();
     }
-    if (e.key === 'Backspace') {
-      dispatch(answerClean());
-    }
   };
 
   return (
@@ -73,7 +72,7 @@ const MessageInput = () => {
               onKeyDown={textAreaHandler}
               placeholder="메시지를 입력하세요.."
               onChange={handleOnChange}
-              autoFocus={true}
+              autoFocus
             />
             <SendButton
               onSubmit={handleOnSubmit}
