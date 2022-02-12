@@ -24,19 +24,9 @@ const MessageInput = () => {
     }
   }, [answerState]);
 
-  const scrollToBottom = useCallback(() => {
-    if (input) {
-      scrollEl.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest',
-      });
-    }
-  }, [input]);
-
   useEffect(() => {
-    scrollToBottom();
-  }, [scrollToBottom]);
+    textEl.current?.focus();
+  }, [input]);
 
   const handleOnChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -79,12 +69,12 @@ const MessageInput = () => {
   return (
     <>
       {userState.userName && (
-        <div className="input-wrapper">
+        <div className="input-wrapper" ref={scrollEl}>
           <div className="input-container">
             <div className="input-wrap">
               <textarea
-                className="message-input"
                 ref={textEl}
+                className="message-input"
                 name="message-input"
                 value={input}
                 cols={180}
