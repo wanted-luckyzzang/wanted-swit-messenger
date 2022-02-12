@@ -2,6 +2,7 @@ import { LoginAction, LogoutAction } from './authTypes';
 import { MeData, MessageData } from './dataTypes';
 import { SendAction, DeleteAction } from './messageTypes';
 import { StoreState } from './stateType';
+import { AnswerAction, CleanAction } from './answerTypes';
 
 export type {
   LoginAction,
@@ -11,4 +12,6 @@ export type {
   SendAction,
   DeleteAction,
   StoreState,
+  AnswerAction,
+  CleanAction,
 };

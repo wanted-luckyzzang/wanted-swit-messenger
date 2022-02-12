@@ -8,3 +8,8 @@ export interface MessageData extends MeData {
   content: string;
   date: string;
 }
+
+export interface AnswerData {
+  userName: string | undefined;
+  content: string | undefined;
+}
