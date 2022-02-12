@@ -1,6 +1,8 @@
 import { MeData, MessageData } from 'types/store';
+import { AnswerParams } from './actions/answer';
 
-export const DEFAULT_PROFILE = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+export const DEFAULT_PROFILE =
+  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
 export const ME: MeData = {
   userId: 0,
@@ -47,3 +49,8 @@ export const MESSAGE_DATA: MessageData[] = [
     date: '2022-02-11 22:40:31',
   },
 ];
+
+export const ANSWER_DATA: AnswerParams = {
+  userName: undefined,
+  content: undefined,
+};
