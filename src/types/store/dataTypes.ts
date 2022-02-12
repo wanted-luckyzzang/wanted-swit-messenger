@@ -10,6 +10,5 @@ export interface MessageData extends MeData {
 }
 
 export interface AnswerData {
-  userName: string | undefined;
   content: string | undefined;
 }

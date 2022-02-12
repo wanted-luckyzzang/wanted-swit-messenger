@@ -51,6 +51,5 @@ export const MESSAGE_DATA: MessageData[] = [
 ];
 
 export const ANSWER_DATA: AnswerParams = {
-  userName: undefined,
   content: undefined,
 };
