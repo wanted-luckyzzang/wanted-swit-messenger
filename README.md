@@ -8,7 +8,7 @@
 
 ## 2. 배포 링크
 
-
+https://luckyzzang-swit-messenger.netlify.app/
 
 
 ## 3. 팀원 소개
