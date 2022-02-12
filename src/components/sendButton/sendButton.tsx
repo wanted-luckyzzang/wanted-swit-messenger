@@ -1,3 +1,4 @@
+import React from 'react';
 import './sendButton.scss';
 
 interface Button {
@@ -8,7 +9,11 @@ interface Button {
 
 const SendButton = ({ onSubmit, keyHandler, active }: Button) => {
   return (
-    <button className={['send-btn', active].join(' ')} onClick={onSubmit} onKeyPress={keyHandler}>
+    <button
+      className={['send-btn', active].join(' ')}
+      onClick={onSubmit}
+      onKeyPress={keyHandler}
+    >
       전송
     </button>
   );
@@ -18,4 +23,4 @@ SendButton.defaultProps = {
   active: 'nonactive',
 };
 
-export default SendButton;
+export default React.memo(SendButton);
