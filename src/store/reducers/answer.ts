@@ -7,7 +7,6 @@ export default function answer(state = ANSWER_DATA, action: ANSWERActions) {
   switch (action.type) {
     case ANSWER:
       return {
-        userName: action.payload.userName,
         content: action.payload.content,
       };
     case ANSWER_CLEAN:

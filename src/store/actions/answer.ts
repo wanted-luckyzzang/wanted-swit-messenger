@@ -1,13 +1,12 @@
 import { ANSWER, ANSWER_CLEAN } from './actionType';
 
 export interface AnswerParams {
-  userName: string | undefined;
   content: string | undefined;
 }
-const answerMessage = ({ userName, content }: AnswerParams) => {
+const answerMessage = ({ content }: AnswerParams) => {
   return {
     type: ANSWER,
-    payload: { userName, content },
+    payload: { content },
   };
 };
 
