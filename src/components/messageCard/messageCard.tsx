@@ -1,11 +1,14 @@
 import MessageModal from 'components/messageModal/messageModal';
 import { useCallback, useEffect, useRef } from 'react';
-import { MessageData } from 'types/store';
+import { useSelector } from 'react-redux';
+import { MessageData, StoreState } from 'types/store';
 import './messageCard.scss';
 import ProfilePhoto from './profilePhoto';
 
-const MessageCard = (props: { msg: MessageData }, messageState): JSX.Element => {
+const MessageCard = (props: { msg: MessageData }): JSX.Element => {
   const scrollEl = useRef<HTMLDivElement>(null);
+
+  const messageState = useSelector((state: StoreState) => state.message);
   
   const scrollToBottom = useCallback(() => {
     if (messageState) {

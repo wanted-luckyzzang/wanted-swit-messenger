@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'types/store';
-import { logout } from 'store/actions';
+import { answerClean, logout } from 'store/actions';
 import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
 import './Main.scss';
@@ -20,8 +20,9 @@ const Main = () => {
   
   const logoutHandler = () => {
     dispatch(logout());
-    alert("로그아웃 되었습니다.")
-  }
+    dispatch(answerClean());
+    alert('로그아웃 되었습니다.');
+  };
 
   
   return (
@@ -57,13 +58,13 @@ const Main = () => {
               </div>
               <div className="chat-section" >
                 {messageState.map((data, idx) => (
-                  <MessageCard key={idx} msg={data} messageState={messageState} />
+                  <MessageCard key={idx} msg={data} />
                 ))}
               </div>
               <MessageInput />
             </div>
           </div>
-          </div>
+        </div>
       </div>
     </>
   );
