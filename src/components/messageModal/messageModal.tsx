@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { answerMessage } from 'store/actions';
 import { useBlockScroll } from 'hooks/useBlockScroll';
-import { MessageData } from 'types/store';
+import { MessageData, StoreState } from 'types/store';
 import DeleteModal from './deleteModal';
 import './messageModal.scss';
 
