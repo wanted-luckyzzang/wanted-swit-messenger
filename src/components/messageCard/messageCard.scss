@@ -1,15 +1,20 @@
+$card-text: #343434;
+
 .message-card-container {
   position: relative;
+
   &:hover {
     .message-modal-container {
       display: block;
     }
   }
+
   .message-card {
     display: flex;
     padding: 22px 20px;
     cursor: pointer;
     white-space: pre-line;
+
     &:hover {
       background-color: #f1f1f1;
     }
@@ -38,14 +43,16 @@
       display: flex;
       flex-direction: column;
       width: 95%;
+
       .name-date {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
+
         .name {
           margin-right: 8px;
           font-weight: 700;
-          color: #343434;
+          color: $card-text;
           font-size: 14px;
         }
 
@@ -58,7 +65,7 @@
       .message {
         word-break: break-all;
         font-size: 14px;
-        color: #343434;
+        color: $card-text;
       }
     }
   }

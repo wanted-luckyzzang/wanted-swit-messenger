@@ -28,14 +28,11 @@ const MessageInput = () => {
     textEl.current?.focus();
   }, [input]);
 
-  const handleOnChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setInput(e.target.value);
-      setActive('active');
-      if (!e.target.value) setActive('nonactive');
-    },
-    []
-  );
+  const handleOnChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    setActive('active');
+    if (!e.target.value) setActive('nonactive');
+  }, []);
 
   const handleOnSubmit = () => {
     if (input.length) {
@@ -55,6 +52,7 @@ const MessageInput = () => {
   const onKeyHandler = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter' && e.shiftKey === false) {
       e.preventDefault();
+
       handleOnSubmit();
     }
   };
@@ -69,26 +67,22 @@ const MessageInput = () => {
   return (
     <>
       {userState.userName && (
-        <div className="input-wrapper" ref={scrollEl}>
-          <div className="input-container">
-            <div className="input-wrap">
+        <div className='input-wrapper' ref={scrollEl}>
+          <div className='input-container'>
+            <div className='input-wrap'>
               <textarea
                 ref={textEl}
-                className="message-input"
-                name="message-input"
+                className='message-input'
+                name='message-input'
                 value={input}
                 cols={180}
-                onKeyDown={textAreaHandler}
-                placeholder="메시지를 입력하세요.."
+                onKeyPress={textAreaHandler}
+                placeholder='메시지를 입력하세요..'
                 onChange={handleOnChange}
-                wrap="hard"
+                wrap='hard'
                 autoFocus
               />
-              <SendButton
-                onSubmit={handleOnSubmit}
-                keyHandler={onKeyHandler}
-                active={active}
-              />
+              <SendButton onSubmit={handleOnSubmit} keyHandler={onKeyHandler} active={active} />
             </div>
           </div>
         </div>
