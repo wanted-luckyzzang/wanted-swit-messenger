@@ -12,7 +12,7 @@ const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
   const userState = useSelector((state: StoreState) => state.auth);
   const [LoginModal, setLoginModal] = useState<boolean>(true);
-
+  
   const logoutHandler = () => {
     dispatch(logout());
     dispatch(answerClean());
@@ -29,7 +29,24 @@ const Main = () => {
           <div className="home-wrap">
             <div className="home-icon"></div>
           </div>
-          <div className="header-title">Swit</div>
+
+          <div className="header-row">
+            <div className="header-title">Swit</div>
+            {userState.userName ? (
+              <div className="section-login" onClick={logoutHandler}>
+                로그아웃
+              </div>
+            ) : (
+              <div
+                className="section-login"
+                onClick={() => {
+                  setLoginModal(!LoginModal);
+                }}
+              >
+                로그인
+              </div>
+            )}
+          </div>
         </div>
         <div className="main">
           <div className="sidebar">
@@ -37,7 +54,7 @@ const Main = () => {
           </div>
           <div className="section">
             <div className="section-navBox">
-              <span className="nav">💛General</span>
+              <span className="nav">💛 General</span>
               {userState.userName ? (
                 <span className="section-login" onClick={logoutHandler}>
                   로그아웃
