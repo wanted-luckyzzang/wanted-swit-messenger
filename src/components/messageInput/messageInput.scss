@@ -1,0 +1,50 @@
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+.input-container {
+  background: #f8f8f8;
+  padding: 16px 18px;
+  align-items: center;
+  width: 90vw;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  flex-grow: 1;
+  max-height: 90vw;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .input-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+
+  .input-wrap {
+    display: flex;
+    border: 1px solid #e4e4e9;
+    min-width: 300px;
+    max-width: 90vw;
+
+    .message-input {
+      border: none;
+      padding: 12px 20px;
+      background: #fff;
+      width: 100%;
+      height: 40px;
+      flex-grow: 1;
+      resize: none;
+
+      &::placeholder {
+        color: #e4e4e9;
+        font-size: 18px;
+      }
+
+      &:active,
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
+}

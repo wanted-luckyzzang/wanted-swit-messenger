@@ -31,7 +31,6 @@
 </table>
 
 
-
 ## 4. 구현 기능
 
 ⚜ 이지용
@@ -41,8 +40,6 @@
 ⚜ 박민주
   
 ⚜ 윤예나
-
-
 
 ## 5. 기술 스택
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
