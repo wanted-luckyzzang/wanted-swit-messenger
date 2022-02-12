@@ -2,6 +2,13 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .input-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+
   .input-container {
     background: #f8f8f8;
     padding: 16px 18px;

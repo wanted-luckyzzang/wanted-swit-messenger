@@ -4,6 +4,12 @@
   flex-direction: column;
   height: 100%;
   position: relative;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .main-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 
   .header {
     display: flex;
