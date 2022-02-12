@@ -1,46 +1,99 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 프로젝트 소개
 
-## Available Scripts
+- 주제 : 메신저
+- 기간 : 22.02.10 ~ 22.02.12
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 2. 배포 링크
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 3. 팀원 소개
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<table>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <tr align="center">
+    <td><a href='https://github.com/Jiyong95'>이지용</a></td>
+    <td><a href="https://github.com/BByungs">안병진</a></td>
+    <td><a href="https://github.com/Yena-Yun">윤예나</a></td>
+    <td><a href="https://github.com/minjuice1">박민주</a></td>
+  </tr>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/49055628?v=4" width="150px"/></td>
+    <td><img src="https://avatars.githubusercontent.com/u/81910935?v=4"  width="150px"/></td>
+    <td><img src="https://avatars.githubusercontent.com/u/68722179?v=4" width="150px"/></td>
+    <td><img src="https://avatars.githubusercontent.com/u/82799961?v=4" width="150px"/></td>
+  </tr>
+</table>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. 구현 기능
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+⚜ 이지용
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+⚜ 안병진   
+    
+⚜ 박민주
+  
+⚜ 윤예나
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 5. 기술 스택
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![scss](https://img.shields.io/badge/scss-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) 
+
+
+## 6. 디렉토리 구조
+
+```bash
+.
+├── App.tsx
+├── assets      # icons, images
+├── components
+│   ├── Login
+│   ├── messageCard
+│   └── messageModal
+├── pages
+│   └── Main
+├── store     # redux 구성 파일
+│   ├── actions   # redux action
+│   ├── data.ts   # 대화목록 data
+│   └── reducers
+│       ├── auth.ts     # 사용자 reducer
+│       ├── message.ts  # 대화 목록 reducer
+│       └── utils       # reducer 관련 utils 함수
+├── types     # typescript type 선언 파일
+└── utils     # 자주 사용하는 함수
+```
+
+
+## 7. 설치 및 실행 방법
+클라이언트 실행
+    ```bash
+    npm run start
+    ```
+
+
+## 8. 커밋 컨벤션
+
+깃모지를 사용하여 이모티콘만 보고 커밋의 목적이나 의도를 쉽게 식별할 수 있도록 하였습니다.
+
+| 깃모지 | 사용 예시 |
+| --- | --- |
+| :sparkles: | 기능 구현 |
+| :lipstick: | CSS 스타일링 |
+| :wrench: | utils 함수나 types 추가 |
+| :fire: | 파일 삭제 |
+| :wastebasket: | 코드 삭제 |
+| 🚚 | 디렉토리 또는 파일 이동 |
+| :package: | 패키지 설치 |
+| ♻️ | 리팩토링 |
+| 📝 | Readme 수정 |
+| 🐛 | 버그 수정 |
