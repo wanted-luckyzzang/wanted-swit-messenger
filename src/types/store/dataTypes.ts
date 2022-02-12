@@ -12,3 +12,4 @@ export interface MessageData extends MeData {
 export interface AnswerData {
   content: string | undefined;
 }
+
