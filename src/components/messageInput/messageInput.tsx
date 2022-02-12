@@ -79,7 +79,8 @@ const MessageInput = () => {
   return (
     <>
       {userState.userName && (
-        <div className="input-container" ref={scrollEl}>
+        <div className='input-wrapper'>
+        <div className="input-container">
           <div className="input-wrap">
             <textarea
               ref={textEl}
@@ -98,6 +99,7 @@ const MessageInput = () => {
               active={active}
             />
           </div>
+        </div>
         </div>
       )}
     </>
