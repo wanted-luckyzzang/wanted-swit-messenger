@@ -22,7 +22,7 @@ const MessageCard = (props: { msg: MessageData }): JSX.Element => {
 
 
   return (
-    <div className='message-card-container'ref={scrollEl}>
+    <div className='message-card-container' ref={scrollEl}>
       <MessageModal data={props.msg} />
       <div className='message-card' >
         <div className='user-profile'>
