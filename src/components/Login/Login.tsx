@@ -76,7 +76,7 @@ const Login = ({ setLoginModal }: ModalType) => {
               onChange={imageHandler}
             />
             <div className="label">
-              <label htmlFor="input">이미지 등록</label>
+              <label htmlFor="input">이미지 업로드</label>
             </div>
           </div>
           <div className="login-info">

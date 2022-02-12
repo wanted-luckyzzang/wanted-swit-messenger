@@ -1,9 +1,11 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { answerMessage } from 'store/actions';
+import { useBlockScroll } from 'hooks/useBlockScroll';
+import { useEffect, useState } from 'react';
 import { MessageData } from 'types/store';
 import DeleteModal from './deleteModal';
 import './messageModal.scss';
+
 const MessageModal = (props: { data: MessageData }): JSX.Element => {
   const [modalActive, setModalActive] = useState<boolean>(false);
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
     const answer = `${userName}\n${content}\n(회신)\n`;
     dispatch(answerMessage({ content: answer }));
   };
+  useBlockScroll(modalActive);
 
   return (
     <>
