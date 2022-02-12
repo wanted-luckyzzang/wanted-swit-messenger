@@ -9,6 +9,12 @@
   bottom: 0;
   flex-grow: 1;
   max-height: 90vw;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .input-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 
   .input-wrap {
     display: flex;
