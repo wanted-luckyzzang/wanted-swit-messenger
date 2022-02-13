@@ -15,7 +15,6 @@ const Main = () => {
   const messageState = useSelector((state: StoreState) => state.message);
   const userState = useSelector((state: StoreState) => state.auth);
   const loginModalState = useSelector((state: StoreState) => state.loginModal);
-  console.log(loginModalState.active);
 
   const logoutHandler = () => {
     dispatch(logout());
