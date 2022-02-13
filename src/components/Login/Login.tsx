@@ -44,6 +44,7 @@ const Login = ({ setLoginModal }: ModalType) => {
         login({ userId: getNewId(messageState), userName, profileImage })
       );
     alert('환영합니다😍');
+    setLoginModal(false);
     navigate('/');
   };
 

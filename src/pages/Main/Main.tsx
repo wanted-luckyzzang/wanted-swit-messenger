@@ -3,7 +3,7 @@ import './Main.scss';
 import { StoreState } from 'types/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { answerClean, logout } from 'store/actions';
-import { useBottomScroll } from 'hooks';
+import { useBlockScroll, useBottomScroll } from 'hooks';
 import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
 import Login from 'components/Login/Login';
@@ -19,10 +19,10 @@ const Main = () => {
     dispatch(logout());
     dispatch(answerClean());
     alert('로그아웃 되었습니다.');
+    setLoginModal(true);
   };
-
   useBottomScroll(messageState, scrollRef);
-
+  useBlockScroll(LoginModal);
   return (
     <>
       {LoginModal && !userState.userName && (
@@ -44,7 +44,7 @@ const Main = () => {
               <div
                 className="section-login"
                 onClick={() => {
-                  setLoginModal(!LoginModal);
+                  setLoginModal((prev) => !prev);
                 }}
               >
                 로그인
@@ -67,7 +67,7 @@ const Main = () => {
                 <span
                   className="section-login"
                   onClick={() => {
-                    setLoginModal(!LoginModal);
+                    setLoginModal((prev) => !prev);
                   }}
                 >
                   로그인
