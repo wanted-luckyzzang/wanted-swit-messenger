@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import './Main.scss';
 import { StoreState } from 'types/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { answerClean, logout } from 'store/actions';
+import { useBottomScroll } from 'hooks';
 import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
 import Login from 'components/Login/Login';
-import './Main.scss';
-import useBottomScroll from 'hooks/useBottomScroll';
 
 const Main = () => {
   const dispatch = useDispatch();

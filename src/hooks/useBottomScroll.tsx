@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect } from 'react';
 import { MessageData } from 'types/store';
 
-const useBottomScroll = (
+export const useBottomScroll = (
   messageState: MessageData[],
   scrollRef: MutableRefObject<HTMLDivElement | null>
 ) => {
@@ -18,4 +18,3 @@ const useBottomScroll = (
     scrollBottom();
   }, [messageState]);
 };
-export default useBottomScroll;
