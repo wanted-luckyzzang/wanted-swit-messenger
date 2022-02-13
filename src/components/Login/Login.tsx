@@ -7,13 +7,9 @@ import { DEFAULT_PROFILE } from 'store/data';
 import { StoreState } from 'types/store';
 import { getNewId } from 'store/reducers/utils';
 import './Login.scss';
-import { useControlModal } from 'hooks/useControlModal';
+import { LOGIN_MODAL_DISABLED } from 'store/actions/modalType';
 
-interface ModalType {
-  setLoginModal: (loginModal: boolean) => void;
-}
-
-const Login = ({ setLoginModal }: ModalType) => {
+const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [userName, setUserName] = useState<string>();
@@ -44,7 +40,7 @@ const Login = ({ setLoginModal }: ModalType) => {
         login({ userId: getNewId(messageState), userName, profileImage })
       );
     alert('환영합니다😍');
-    setLoginModal(false);
+    dispatch({ type: LOGIN_MODAL_DISABLED, payload: { active: false } });
     navigate('/');
   };
 
@@ -55,7 +51,12 @@ const Login = ({ setLoginModal }: ModalType) => {
           <span>Swit</span>
           <img
             src={cancel}
-            onClick={useControlModal(setLoginModal, false)}
+            onClick={() =>
+              dispatch({
+                type: LOGIN_MODAL_DISABLED,
+                payload: { active: false },
+              })
+            }
             alt="x-icon"
           />
         </header>
@@ -100,7 +101,7 @@ const Login = ({ setLoginModal }: ModalType) => {
       </div>
       <div
         className="login-overlay"
-        onClick={useControlModal(setLoginModal, false)}
+        onClick={() => dispatch({ type: LOGIN_MODAL_DISABLED, payload: false })}
       />
     </>
   );

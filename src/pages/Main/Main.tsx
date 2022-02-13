@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import './Main.scss';
 import { StoreState } from 'types/store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,27 +7,27 @@ import { useBlockScroll, useBottomScroll } from 'hooks';
 import MessageCard from 'components/messageCard/messageCard';
 import MessageInput from 'components/messageInput/messageInput';
 import Login from 'components/Login/Login';
+import { LOGIN_MODAL_ACTIVE } from 'store/actions/modalType';
 
 const Main = () => {
   const dispatch = useDispatch();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const messageState = useSelector((state: StoreState) => state.message);
   const userState = useSelector((state: StoreState) => state.auth);
-  const [LoginModal, setLoginModal] = useState<boolean>(true);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const loginModalState = useSelector((state: StoreState) => state.loginModal);
+  console.log(loginModalState.active);
 
   const logoutHandler = () => {
     dispatch(logout());
     dispatch(answerClean());
     alert('로그아웃 되었습니다.');
-    setLoginModal(true);
+    dispatch({ type: LOGIN_MODAL_ACTIVE, payload: { active: true } });
   };
   useBottomScroll(messageState, scrollRef);
-  useBlockScroll(LoginModal);
+  useBlockScroll(loginModalState.active);
   return (
     <>
-      {LoginModal && !userState.userName && (
-        <Login setLoginModal={setLoginModal} />
-      )}
+      {loginModalState.active && !userState.userName && <Login />}
       <div className="main-container">
         <div className="header">
           <div className="home-wrap">
@@ -44,7 +44,10 @@ const Main = () => {
               <div
                 className="section-login"
                 onClick={() => {
-                  setLoginModal((prev) => !prev);
+                  dispatch({
+                    type: LOGIN_MODAL_ACTIVE,
+                    payload: { active: true },
+                  });
                 }}
               >
                 로그인
@@ -67,7 +70,10 @@ const Main = () => {
                 <span
                   className="section-login"
                   onClick={() => {
-                    setLoginModal((prev) => !prev);
+                    dispatch({
+                      type: LOGIN_MODAL_ACTIVE,
+                      payload: { active: true },
+                    });
                   }}
                 >
                   로그인
