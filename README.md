@@ -79,7 +79,8 @@ https://luckyzzang-swit-messenger.netlify.app/
 │   └── messageModal
 ├── hooks
 │   ├── useBlockScroll
-│   └── useBottomScroll  
+│   ├── useBottomScroll
+│   └── useControlModal  
 ├── pages
 │   └── Main
 ├── store     # redux 구성 파일
