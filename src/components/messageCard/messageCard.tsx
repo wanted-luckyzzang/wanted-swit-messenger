@@ -8,6 +8,7 @@ import './messageCard.scss';
 const MessageCard = (props: { msg: MessageData }): JSX.Element => {
   const scrollEl = useRef<HTMLDivElement>(null);
   const messageState = useSelector((state: StoreState) => state.message);
+  const userState = useSelector((state: StoreState) => state.auth);
 
   const scrollToBottom = useCallback(() => {
     if (messageState) {
@@ -33,7 +34,7 @@ const MessageCard = (props: { msg: MessageData }): JSX.Element => {
         <div className="content">
           <span className="name-date">
             <span className="name">
-              {props.msg.userId === 3
+              {props.msg.userId === userState.userId
                 ? `${props.msg.userName}*`
                 : props.msg.userName}
             </span>

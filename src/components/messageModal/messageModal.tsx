@@ -1,17 +1,19 @@
 import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { answerMessage } from 'store/actions';
 import { useBlockScroll } from 'hooks/useBlockScroll';
-import { MessageData } from 'types/store';
+import { MessageData, StoreState } from 'types/store';
 import DeleteModal from './deleteModal';
 import './messageModal.scss';
 
 const MessageModal = (props: { data: MessageData }): JSX.Element => {
   const [modalActive, setModalActive] = useState<boolean>(false);
+  const userState = useSelector((state: StoreState) => state.auth);
   const dispatch = useDispatch();
 
   const handleDelete = useCallback(() => {
-    setModalActive(true);
+    if (userState.userId === props.data.userId) setModalActive(true);
+    else alert('자신의 메세지만 삭제할 수  있습니다.');
   }, []);
 
   const answerHandler = useCallback(() => {
