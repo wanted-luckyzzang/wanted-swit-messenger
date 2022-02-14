@@ -34,12 +34,33 @@ https://luckyzzang-swit-messenger.netlify.app/
 ## 4. 구현 기능
 
 ⚜ 이지용
+* 리덕스 boiler-plate 세팅
+* 리덕스, 타입스크립트 세팅
+* 리덕스를 활용한 메신저 내용 저장
+* redux-persist로 로컬스토리지에 저장: 새로고침 시에도 상태 유지 기능
+* 입력란의 멀티라인 메시지 화면에 그대로 출력
 
-⚜ 안병진   
+⚜ 안병진
+* 리덕스, 타입스크립트 세팅
+* 채팅 메시지 UI
+* 대화내용 입력시 스크롤 아래로 내려가는 기능 구현
+* 채팅 메시지 모달 UI (hover 시 답장/삭제 버튼)
+* 삭제버튼 모달 (10자까지 보여주고 말줄임표 처리)
+* 모달 활성화 유무로 스크롤 활성화/비활성화 되는 기능구현
     
 ⚜ 박민주
+* 로그인 모달 UI
+* 리덕스를 활용한 로그인 기능
+* 로그인 모달에 이미지 등록과 프리뷰
+* 내가 전송한 메시지의 경우 이름 옆에 * 출력
+* 엔터키 util 함수
   
 ⚜ 윤예나
+* 채팅창 페이지 UI
+* 채팅창 댓글 작성 기능
+* data.ts에 있는 기존 데이터 렌더링
+* 입력 시 전송버튼 활성화 (scss의 props 작업)
+* 날짜 util 함수 (yyyy-mm-dd hh:MM:ss 형태로 출력)
 
 ## 5. 기술 스택
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -57,6 +78,10 @@ https://luckyzzang-swit-messenger.netlify.app/
 │   ├── Login
 │   ├── messageCard
 │   └── messageModal
+├── hooks
+│   ├── useBlockScroll
+│   ├── useBottomScroll
+│   └── useControlModal  
 ├── pages
 │   └── Main
 ├── store     # redux 구성 파일
