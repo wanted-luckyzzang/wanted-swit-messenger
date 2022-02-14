@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import './messageModal.scss';
-import { MessageData } from 'types/store';
-import { useDispatch } from 'react-redux';
+import { MessageData, StoreState } from 'types/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { answerMessage } from 'store/actions';
 import { useBlockScroll, useControlModal } from 'hooks';
 import DeleteModal from './deleteModal';
@@ -9,6 +9,7 @@ import DeleteModal from './deleteModal';
 const MessageModal = (props: { data: MessageData }): JSX.Element => {
   const [modalActive, setModalActive] = useState<boolean>(false);
   const dispatch = useDispatch();
+  const userState = useSelector((state: StoreState) => state.auth);
 
   const answerHandler = useCallback(() => {
     const { userName, content } = props.data;
@@ -29,7 +30,12 @@ const MessageModal = (props: { data: MessageData }): JSX.Element => {
         </button>
         <button
           className="message-modal-button"
-          onClick={useControlModal(setModalActive, true)}
+          onClick={useControlModal(
+            setModalActive,
+            true,
+            props.data.userId,
+            userState.userId
+          )}
         >
           삭제
         </button>

@@ -1,10 +1,12 @@
 import React from 'react';
-import { MessageData } from 'types/store';
+import { MessageData, StoreState } from 'types/store';
 import MessageModal from 'components/messageModal/messageModal';
 import ProfilePhoto from './profilePhoto';
 import './messageCard.scss';
+import { useSelector } from 'react-redux';
 
 const MessageCard = (props: { msg: MessageData }): JSX.Element => {
+  const userState = useSelector((state: StoreState) => state.auth);
   return (
     <div className="message-card-container">
       <MessageModal data={props.msg} />
@@ -15,7 +17,7 @@ const MessageCard = (props: { msg: MessageData }): JSX.Element => {
         <div className="content">
           <span className="name-date">
             <span className="name">
-              {props.msg.userId === 3
+              {props.msg.userId === userState.userId
                 ? `${props.msg.userName}*`
                 : props.msg.userName}
             </span>
