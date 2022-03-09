@@ -2,13 +2,11 @@
 ## 1. 프로젝트 소개
 
 - 주제 : 메신저
-- 기간 : 22.02.10 ~ 22.02.12
-
 
 
 ## 2. 배포 링크
 
-https://luckyzzang-swit-messenger.netlify.app/
+<h2>https://luckyzzang-swit-messenger.netlify.app/</h2>
 
 
 ## 3. 팀원 소개
@@ -57,8 +55,8 @@ https://luckyzzang-swit-messenger.netlify.app/
   
 ⚜ 윤예나
 * 채팅창 페이지 UI
-* 채팅창 댓글 작성 기능
-* data.ts에 있는 기존 데이터 렌더링
+* 채팅창 댓글 작성 기능 구현
+* 기존 메시지 5개(data.ts)를 화면에 렌더링
 * 입력 시 전송버튼 활성화 (scss의 props 작업)
 * 날짜 util 함수 (yyyy-mm-dd hh:MM:ss 형태로 출력)
 
